@@ -1,15 +1,15 @@
-import { resetOrdering, resetSelection } from "./helpers";
 import {
   PageNumberPaginationMeta,
   PageNumberPaginationOptions,
   PrismaModel,
   PrismaQuery,
 } from "./types";
+import { resetOrdering, resetSelection } from "./helpers";
 
 export const paginateWithPages = async (
   model: PrismaModel,
   query: PrismaQuery,
-  { page, limit, includePageCount }: Required<PageNumberPaginationOptions>,
+  { page = 1, limit = Number.MAX_SAFE_INTEGER, includePageCount }: Required<PageNumberPaginationOptions>,
 ): Promise<[unknown, PageNumberPaginationMeta<typeof includePageCount>]> => {
   const previousPage = page > 1 ? page - 1 : null;
 

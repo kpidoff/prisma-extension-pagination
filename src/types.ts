@@ -7,7 +7,7 @@ export type PrismaQuery = {
 };
 
 export type PageNumberPaginationOptions = {
-  limit: number;
+  limit?: number;
   page?: number;
   includePageCount?: boolean;
 };
